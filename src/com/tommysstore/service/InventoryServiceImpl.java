@@ -54,7 +54,7 @@ public class InventoryServiceImpl implements InventoryService {
 	
 	@Transactional
 	public Inventory find(Integer id) throws ProductNotFoundException {
-		
+
 		Inventory inventory = inventoryRepository.find(id);
 		
 		if(inventory == null) {

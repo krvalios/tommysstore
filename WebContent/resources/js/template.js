@@ -305,7 +305,7 @@ var TplUtil = (function(){
 	);
 	
 	var cartTpl = _.template(
-		 '<form action="/ajax/cart/edit" method="POST" id="cart_form">' 
+		 '<form action="/ajax/cart/edit" method="POST" id="cart_form_<%- id %>">' 
 		+	'<input type="hidden" name = "product.id" value = "<%- id %>" />'
 		+	'<div class="card mb-3 mx-2" style="width: 350px; height: 250px" id="<%- id %>">'
 		+	  	'<div class="row no-gutters d-flex h-100">'
@@ -328,7 +328,7 @@ var TplUtil = (function(){
 		+	  			'<div class="input-group-prepend">'
 		+			    	'<span class="input-group-text">&#8369;<%- amount %></span>'
 		+			  	'</div>'
-	    +  				'<input type="number" name = "quantity" id="quantity" class="form-control" value = "<%- quantity %>"/>'
+	    +  				'<input type="number" name = "quantity" id="quantity_<%- id %>" class="form-control" value = "<%- quantity %>"/>'
 		+			  	'<div class="input-group-append">'
 		+			    	'<button class="btn btn-success cart_edit" type="submit">Save</button>'
 		+			  	'</div>'

@@ -64,7 +64,7 @@
 			type : 'POST',
 			url : contextPath + '/ajax/cart/edit',
 			dataType: 'json',
-			data : $('#cart_form').serialize(),
+			data : $('#cart_form_' + id).serialize(),
 			success : function(response) {
 				if (response.status == 'success') {
 					$('.input-group-text').html('&#8369;' + response.data.amount);
@@ -72,11 +72,12 @@
 					CommonUtil.showMessage($alertResult, 'success', response.customMessage);
 				} 
 				else {
+					$('#cart_form_' + id)[0].reset();
 					if(response.customMessage != null){
 						CommonUtil.showMessage($alertResult, 'danger', response.customMessage);
 					}
 					$.each(response.errorMessages, function(key, value){
-						var $inputField = $('#' + key);
+						var $inputField = $('#' + key + '_' + id);
 						$inputField.addClass('is-invalid');
 						$inputField.after(TplUtil.invalidInputTpl({value: value}));
 		           	});

@@ -192,7 +192,7 @@ public class CartAjaxController {
 	@ResponseBody
 	public JsonResponse<?> edit(@ModelAttribute("cartItemForm") @Valid CartItem cartItem, BindingResult bindingResult, 
 								HttpSession session) throws ProductNotFoundException, InsufficientStockException {
-		
+	
 		if(bindingResult.hasErrors()) {
 			
 			Map<String, String> errors = bindingResult.getFieldErrors().stream().collect(

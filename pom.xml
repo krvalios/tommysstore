@@ -78,13 +78,13 @@
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
-		    <version>5.2.12.Final</version>
+		    <version>5.3.1.Final</version>
 		</dependency>
 		<!-- MYSQL -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.38</version>
+		    <version>8.0.15</version>
 		</dependency>
 		<!-- COMMONS-DBCP -->
 		<dependency>
@@ -99,12 +99,12 @@
 	   		<version>1.2</version>
 	  	</dependency>
 	  	<!-- HIBERNATE-VALIDATOR -->
-	  	<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.1.0.Final</version>
-        </dependency>
-        <!-- COMMONS-FILEUPLOAD -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.3.1.Final</version>
+		</dependency>
+		<!-- COMMONS-FILEUPLOAD -->
         <dependency>
 		    <groupId>commons-fileupload</groupId>
 		    <artifactId>commons-fileupload</artifactId>

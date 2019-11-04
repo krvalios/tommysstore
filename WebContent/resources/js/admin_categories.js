@@ -81,6 +81,9 @@
 			data : $addForm.serialize(),
 			success : function(response) {
 				if (response.status == 'success') {
+					$alertEmpty.hide();
+					$table.show();
+					$addForm[0].reset();
 					CommonUtil.showMessage($alertResult, 'success', response.customMessage);
 					$table.append(TplUtil.categoryTpl(response.data));
 				} 

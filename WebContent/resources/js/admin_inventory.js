@@ -18,12 +18,14 @@
 				if (response.status == 'success') {
 					if(response.data.length != 0){
 						$alertEmpty.hide();
+						$table.show();
 						$.each(response.data, function(i, inventory){
 							$table.append(TplUtil.inventoryTpl(inventory));
 			           	});
 					}
 					else {
 						$alertEmpty.show();
+						$table.hide();
 					}
 				} 
 				else {

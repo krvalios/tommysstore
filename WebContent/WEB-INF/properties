@@ -1,6 +1,6 @@
 db.url=jdbc:mysql://localhost:3306/tommysstore
 db.username=root
-db.password=
+db.password=root
 
 inventory.lowStockLimit=50
 inventory.displayStockLimit=50
