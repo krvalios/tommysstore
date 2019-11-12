@@ -1,35 +1,42 @@
-var CommonUtil = (function(){
+var CommonUtil = {};
+	
+(function(){
 	"use strict";
 	
-	var contextPath = $(document.body).attr('data-context-path');
-	var $alertEmpty = $('#alert_empty');
-	var $alertResult = $('#alert_result');
+	CommonUtil.contextPath = $(document.body).attr('data-context-path');
+	CommonUtil.$alertEmpty = $('#alert_empty');
+	CommonUtil.$alertResult = $('#alert_result');
 	
-	var showMessage = function(selector, type, message){
+	CommonUtil.showMessage = function(selector, type, message){
 		selector.attr('class', 'alert alert-' + type);
 		selector.find('strong').text(message);
 		selector.show();
 	};
 	
-	var clearFeedbacks = function(){
+	CommonUtil.clearFeedbacks = function(){
 		$('.invalid-feedback').remove();
 		$('.is-invalid').addClass('').removeClass('is-invalid');
 		$('.alert').hide();
 	};
 	
-	return {
-		contextPath: contextPath,
-		$alertEmpty: $alertEmpty,
-		$alertResult: $alertResult,
-		showMessage: showMessage,
-		clearFeedbacks: clearFeedbacks
-	}
-})();
+	CommonUtil.serializeFormJson = function(form) {
 
-(function(){
-	"use strict";
-	
-	$('.close').on('click', function(event){
+        var o = {};
+        var a = form.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+    
+    $('.close').on('click', function(event){
 		event.preventDefault();
 	    $('.alert').hide();
 	});
@@ -40,5 +47,4 @@ var CommonUtil = (function(){
         	window.location = 'error.jsp';
         }
     });
-	
 })();

@@ -94,7 +94,7 @@ public class CategoryAjaxController {
 		response.setStatus("success");
 		response.setData(new CategoryJson(category));
 		response.setCustomMessage("Category is successfully added");
-		
+
 		return response;
 	}
 	

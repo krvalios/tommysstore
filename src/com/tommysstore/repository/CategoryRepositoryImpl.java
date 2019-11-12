@@ -68,7 +68,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 		} 
 		
 		catch (PersistenceException e) {
-			
+
 			throw new UnavailableCategoryException();
 		}
 	}

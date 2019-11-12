@@ -11,6 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone.js"></script>
 </head>
 <body data-context-path="${pageContext.request.contextPath}">
 	<jsp:include page = "navbar.jsp" />
@@ -35,11 +36,8 @@
 					  		<form:label path = "name">Product Name</form:label>
 						    <form:input path = "name" class="form-control" id="add_name"/>
 					  	</div>
-					  	<div class="form-group">
+					  	<div class="form-group" id="add_category_select">
 					  		<form:label path = "categoryId">Category</form:label>
-					  		<form:select path="categoryId" class="form-control category_select" id="add_categoryId">
-					  			
-							</form:select>
 					  	</div>
 					  	<div class="form-group">
 					  		<form:label path = "price">Price</form:label>
@@ -47,7 +45,8 @@
 					  	</div>
 					  	<div class="form-group">
 					    	<label id="picture">Product Picture</label>
-					    	<input type="file" class="form-control-file" id="add_picture" name="picture">
+					    	<!-- <input type="file" class="form-control-file" id="add_picture" name="picture"> -->
+					    	<input type="file" class="form-control-file" id="add_picture">
 					  	</div>
 			      	</div>
 			      	<div class="modal-footer">
@@ -61,14 +60,12 @@
 	<div class="modal fade" tabindex="-1" role="dialog" id="edit_modal">
 	  	<div class="modal-dialog modal-lg" role="document">
 	  		<form:form action="/ajax/product/edit" method="POST" enctype="multipart/form-data" modelAttribute="editProductForm" id="edit_form">
-	    		<div class="modal-content" id="edit_modal_content">
-			      	
-	    		</div>
+	    		
 		   	</form:form>
 	  	</div>
 	</div>
 	<div class="container mt-5"><br><br>
-		<div class="col-md-12">
+		<div class="col-md-12" id="container">
 			<div class="alert alert-success" role="alert" id="alert_result" style="display: none;">
 				<button type="button" class="close">
 					<span aria-hidden="true">×</span>
@@ -76,14 +73,17 @@
 				<strong></strong>
 		    </div>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_modal" id="add_btn">Add New Product</button><br><br>
-			<div class="row equal" id="product_cards">
+			<!-- <div class="row equal" id="product_cards">
 				
-			</div>
+			</div> -->
 			<div class="alert alert-danger" role="alert" id="alert_empty" style="display: none;">There are no products, please add a new product</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="<c:url value="/javascript/commons.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/javascript/template.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/javascript/admin_products.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/templates.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/models.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/collections.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/views.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/admin_products.js"/>"></script>
 </body>
 </html>

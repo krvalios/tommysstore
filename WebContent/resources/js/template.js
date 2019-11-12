@@ -3,6 +3,15 @@ var TplUtil = (function(){
 	
 	var contextPath = CommonUtil.contextPath;
 
+	var alertTpl = _.template(
+		  '<div class="alert alert-<%= type %>" role="alert">'
+		+	'<button type="button" class="close">'
+		+		'<span aria-hidden="true">×</span>'
+		+	'</button>'
+		+	'<strong><%= message %></strong>'
+	    + '</div>'
+	);
+	
 	var invalidInputTpl = _.template(
 		'<div class="invalid-feedback"><%= value %></div>'
 	);
@@ -85,7 +94,7 @@ var TplUtil = (function(){
 	);
 	
 	var productModalTpl = _.template(
-		'<input type="hidden" name="id" class="form-control" id="edit_id" value="<%- id %>"/>'
+		  '<input type="hidden" name="id" class="form-control" id="edit_id" value="<%- id %>"/>'
 	  	+ '<div class="modal-header">'
 	    +	'<h5 class="modal-title">Edit Product</h5>'
 	    +	'<button type="button" class="close" data-dismiss="modal" aria-label="Close">'

@@ -357,7 +357,6 @@ public class ProductAjaxController {
 											EntityDeletionException {
 		
 		Product product = productService.find(id);
-		
 		productService.remove(product);
 		
 		JsonResponse<ProductJson> response = new JsonResponse<ProductJson>();

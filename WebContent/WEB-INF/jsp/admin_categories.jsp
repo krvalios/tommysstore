@@ -11,6 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
+<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone.js"></script>
 <style>
 	.sticky-top { top: 5.5em; }
 </style>
@@ -19,23 +20,7 @@
 	<jsp:include page = "navbar.jsp" />
 	<div class="container mt-5"><br><br>
 		<div class="row">
-			<div class="col-md-4">
-				<div class="card" id="edit_card" style="display: none;">
-				  	<h5 class="card-header" align="center">Edit Category</h5>
-				  	<div class="card-body">
-				  		<form:form action="/ajax/category/edit" method="POST" modelAttribute="editCategoryForm" id="edit_form">
-							<form:hidden path = "id" class="form-control" id="edit_id"/>
-							<div class="form-group">
-						  		<form:label path = "name">Category Name</form:label>
-							    <form:input path = "name" class="form-control" id="edit_name"/>
-						  	</div>
-						  	<div align="center">
-						  		<button type="submit" class="btn btn-primary">EDIT CATEGORY</button>
-								<a href="${pageContext.request.contextPath}/admin/categories" class="btn btn-danger" id="edit_cancel">CANCEL</a>
-							</div>
-						</form:form>
-				  	</div>
-				</div>
+			<div class="col-md-4" id="card_container">
 				<div class="card sticky-top" id="add_card">
 				  	<h5 class="card-header" align="center" id="meme">Add New Category</h5>
 				  	<div class="card-body">
@@ -49,29 +34,22 @@
 				  	</div>
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-8" id="table_container">
 				<div class="alert alert-success" role="alert" id="alert_result" style="display: none;">
 					<button type="button" class="close">
 						<span aria-hidden="true">×</span>
 					</button>
 					<strong></strong>
 			    </div>
-				<table class="table table-hover table-bordered" id="category_table">
-				  	<thead>
-				    	<tr>
-				      		<th scope="col">Category Id</th>
-				      		<th scope="col">Category Name</th>
-				      		<th>Actions</th>
-				    	</tr>
-				  	</thead>
-				  	<tbody></tbody>
-				</table>
-				<div class="alert alert-danger" role="alert" style="display: none;" id="alert_empty">There are no categories, please add a new category</div>
+				<div class="alert alert-danger" role="alert" id="alert_empty" style="display:none;">There are no categories, please add a new category</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="<c:url value="/javascript/commons.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/javascript/template.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/javascript/admin_categories.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/templates.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/models.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/collections.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/views.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/javascript/backbone/admin_categories.js"/>"></script>
 </body>
 </html>
